@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.kx.studyview.activity.ColorfulTextViewActivity">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/foregroundColorSpan"
+            android:textAllCaps="false"
+            android:text="@string/ForegroundColorSpan"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/backgroundColorSpan"
+            android:textAllCaps="false"
+            android:text="@string/BackgroundColorSpan"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/relativeSizeSpan"
+            android:textAllCaps="false"
+            android:text="@string/RelativeSizeSpan"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/strikethroughSpan"
+            android:textAllCaps="false"
+            android:text="@string/StrikethroughSpan"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/underlineSpan"
+            android:textAllCaps="false"
+            android:text="@string/UnderlineSpan"
+             android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/superscriptSpan"
+            android:textAllCaps="false"
+            android:text="@string/SuperscriptSpan"
+             android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/subscriptSpan"
+            android:textAllCaps="false"
+            android:text="@string/SubscriptSpan"
+             android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/styleSpan"
+            android:textAllCaps="false"
+            android:text="@string/StyleSpan"
+             android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/imageSpan"
+            android:textAllCaps="false"
+            android:text="@string/ImageSpan"
+             android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/clickableSpan"
+            android:textAllCaps="false"
+            android:text="@string/ClickableSpan"
+             android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/uRLSpan"
+            android:textAllCaps="false"
+            android:text="@string/URLSpan"
+             android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/spannableStringBuilder"
+            android:textAllCaps="false"
+            android:text="@string/SpannableStringBuilder"
+             android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/content"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

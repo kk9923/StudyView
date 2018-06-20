@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">StudyView</string>
+    <string name="ForegroundColorSpan">ForegroundColorSpan</string>
+    <string name="BackgroundColorSpan">BackgroundColorSpan</string>
+    <string name="RelativeSizeSpan">RelativeSizeSpan</string>
+    <string name="StrikethroughSpan">StrikethroughSpan</string>
+    <string name="UnderlineSpan">UnderlineSpan</string>
+    <string name="SuperscriptSpan">SuperscriptSpan</string>
+    <string name="SubscriptSpan">SubscriptSpan</string>
+    <string name="StyleSpan">StyleSpan</string>
+    <string name="ImageSpan">ImageSpan</string>
+    <string name="ClickableSpan">ClickableSpan</string>
+    <string name="URLSpan">URLSpan</string>
+    <string name="SpannableStringBuilder">SpannableStringBuilder</string>
+</resources>
