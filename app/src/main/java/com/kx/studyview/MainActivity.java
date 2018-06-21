@@ -1,13 +1,12 @@
 package com.kx.studyview;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
 
 import com.kx.studyview.activity.ColorfulTextViewActivity;
+import com.kx.studyview.activity.WaveViewActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,8 +14,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        TextView colorfulTextView = findViewById(R.id.colorfulTextView);
-        colorfulTextView.setOnClickListener(mClickListener);
+        findViewById(R.id.colorfulTextView).setOnClickListener(mClickListener);
+        findViewById(R.id.waveView).setOnClickListener(mClickListener);
     }
     private View.OnClickListener mClickListener = new View.OnClickListener() {
         @Override
@@ -24,6 +23,9 @@ public class MainActivity extends AppCompatActivity {
             switch (v.getId()){
                 case R.id.colorfulTextView:
                     startActivity(ColorfulTextViewActivity.class);
+                    break;
+                case R.id.waveView:
+                    startActivity(WaveViewActivity.class);
                     break;
             }
         }

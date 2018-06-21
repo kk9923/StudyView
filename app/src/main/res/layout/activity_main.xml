@@ -6,22 +6,41 @@
     android:layout_height="match_parent"
     tools:context="com.kx.studyview.MainActivity">
     <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+        <android.support.v7.widget.CardView
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/colorfulTextView"
-            android:layout_marginBottom="5dp"
             android:textSize="16sp"
-            android:textColor="@color/colorAccent"
+            android:textColor="@color/black"
             android:gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:text="绚丽多彩的TextView"
              />
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/waveView"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="酷炫水波纹效果"
+                />
+        </android.support.v7.widget.CardView>
+
+
+
 
     </LinearLayout>
-
-
-
 </ScrollView>
