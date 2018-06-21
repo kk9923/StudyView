@@ -8,5 +8,5 @@
 /src/test
 /src/androidTest
 /captures
-/.idea/vcs.xml
+.idea
 .externalNativeBuild
