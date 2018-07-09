@@ -9,7 +9,6 @@
         android:layout_width="match_parent"
         android:layout_height="50dp" />
     <com.kx.studyview.views.BezierWaveView
-        android:background="@color/colorAccent"
         android:layout_marginTop="50dp"
         android:layout_width="match_parent"
         android:layout_height="100dp" />
