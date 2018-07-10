@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:background="@color/colorPrimary"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <TextView
+        android:text="三角函数方式实现"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
     <com.kx.studyview.views.SinAndCosWaveView
         android:layout_marginTop="50dp"
         android:layout_width="match_parent"
-        android:layout_height="50dp" />
+        android:layout_height="100dp" />
+    <TextView
+        android:layout_marginTop="25dp"
+        android:text="贝塞尔方式实现"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
     <com.kx.studyview.views.BezierWaveView
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="25dp"
         android:layout_width="match_parent"
         android:layout_height="100dp" />
 

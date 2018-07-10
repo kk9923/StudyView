@@ -3,13 +3,15 @@ package com.kx.studyview.views;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
+
+import com.kx.studyview.R;
 
 
 /**
@@ -40,16 +42,16 @@ public class BezierWaveView extends View {
         mBezierPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mBezierPaint.setAntiAlias(true);
         mBezierPaint.setStyle(Paint.Style.FILL);
-        mBezierPaint.setColor(Color.WHITE);
+        mBezierPaint.setColor(ContextCompat.getColor(context, R.color.colorAccent));
         mBezierPaint.setAlpha(50);
 
         mBezierPaint2 = new Paint();
         mBezierPaint2.setAntiAlias(true);
         mBezierPaint2.setStyle(Paint.Style.FILL);
-        mBezierPaint2.setColor(Color.WHITE);
+        mBezierPaint2.setColor(ContextCompat.getColor(context, R.color.colorAccent));
        // mBezierPaint2.setAlpha(50);
         waveWidth = 400;
-        originY  = 50;
+        originY  = 80;
     }
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
@@ -57,12 +59,15 @@ public class BezierWaveView extends View {
         mWidth = w;
         mHeight = h;
     }
-
+    Path clipPath = new Path();
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         mBezierPath.reset();
         mBezierPath2.reset();
+        clipPath.addCircle(getWidth()/2,getHeight()/2,getHeight()/2, Path.Direction.CCW);
+        canvas.clipPath(clipPath);
+        canvas.drawCircle(getWidth()/2,getHeight()/2,getHeight()/2,mBezierPaint);
        //  向下封闭
      //  mBezierPath.moveTo(0,100);
 //        mBezierPath.lineTo(0,getHeight()/2);
@@ -98,10 +103,8 @@ public class BezierWaveView extends View {
         // 形成向下的封闭曲线
         mBezierPath2.lineTo(getWidth(),getHeight());
         mBezierPath2.lineTo(0,getHeight());
+
         canvas.drawPath(mBezierPath2,mBezierPaint2);
-
-
-
     }
 
     @Override

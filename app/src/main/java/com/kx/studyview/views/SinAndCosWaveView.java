@@ -2,12 +2,14 @@ package com.kx.studyview.views;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.View;
+
+import com.kx.studyview.R;
 
 /**
  * Created by admin on 2018/6/21.
@@ -37,12 +39,12 @@ public class SinAndCosWaveView extends View {
         mAboveWavePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mAboveWavePaint.setAntiAlias(true);
         mAboveWavePaint.setStyle(Paint.Style.FILL);
-        mAboveWavePaint.setColor(Color.WHITE);
+        mAboveWavePaint.setColor(ContextCompat.getColor(context, R.color.colorAccent));
 
         mBelowWavePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mBelowWavePaint.setAntiAlias(true);
         mBelowWavePaint.setStyle(Paint.Style.FILL);
-        mBelowWavePaint.setColor(Color.WHITE);
+        mBelowWavePaint.setColor(ContextCompat.getColor(context, R.color.colorAccent));
         mBelowWavePaint.setAlpha(80);
     }
 
