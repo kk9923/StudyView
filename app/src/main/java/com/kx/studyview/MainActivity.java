@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.kx.studyview.activity.ColorfulTextViewActivity;
+import com.kx.studyview.activity.SuperButtonActivity;
 import com.kx.studyview.activity.WaveViewActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -16,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         findViewById(R.id.colorfulTextView).setOnClickListener(mClickListener);
         findViewById(R.id.waveView).setOnClickListener(mClickListener);
+        findViewById(R.id.superButton).setOnClickListener(mClickListener);
     }
     private View.OnClickListener mClickListener = new View.OnClickListener() {
         @Override
@@ -26,6 +28,9 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case R.id.waveView:
                     startActivity(WaveViewActivity.class);
+                    break;
+                    case R.id.superButton:
+                    startActivity(SuperButtonActivity.class);
                     break;
             }
         }
