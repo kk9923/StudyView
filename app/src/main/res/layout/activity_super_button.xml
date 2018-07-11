@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".activity.SuperButtonActivity">
+    android:layout_height="match_parent">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -213,4 +217,36 @@
             app:strokeWidth="02dp"
             />
     </LinearLayout>
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <com.kx.studyview.views.SuperButton
+        android:gravity="center"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="触摸反馈"
+        android:textColor="@color/white"
+        app:cornersRadius="20dp"
+        app:selectorNormalColor="@color/colorAccent"
+        app:selectorPressedColor="@color/gray_btn"
+        app:useSelector="true" />
+
+    <com.kx.studyview.views.SuperButton
+        android:enabled="false"
+        android:gravity="center"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="不可点击"
+        android:textColor="@color/white"
+        app:cornersRadius="20dp"
+        app:selectorDisableColor="@color/gray_btn"
+        app:selectorNormalColor="@color/colorAccent"
+        app:selectorPressedColor="@color/colorPrimary"
+        app:useSelector="true" />
+    </LinearLayout>
 </LinearLayout>
+</ScrollView>
