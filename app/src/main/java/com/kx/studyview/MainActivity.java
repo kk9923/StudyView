@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.kx.studyview.activity.ColorfulTextViewActivity;
+import com.kx.studyview.activity.PrinterTextViewActivity;
 import com.kx.studyview.activity.SuperButtonActivity;
 import com.kx.studyview.activity.TabLayoutActivity;
 import com.kx.studyview.activity.WaveViewActivity;
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.waveView).setOnClickListener(mClickListener);
         findViewById(R.id.superButton).setOnClickListener(mClickListener);
         findViewById(R.id.tabLayout).setOnClickListener(mClickListener);
+        findViewById(R.id.printerTextView).setOnClickListener(mClickListener);
     }
     private View.OnClickListener mClickListener = new View.OnClickListener() {
         @Override
@@ -36,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
                 case R.id.tabLayout:
                     startActivity(TabLayoutActivity.class);
+                    break;
+                    case R.id.printerTextView:
+                    startActivity(PrinterTextViewActivity.class);
                     break;
             }
         }
