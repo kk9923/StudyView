@@ -21,7 +21,8 @@
         </activity>
         <activity android:name=".activity.ColorfulTextViewActivity" />
         <activity android:name=".activity.WaveViewActivity" />
-        <activity android:name=".activity.SuperButtonActivity"/>
+        <activity android:name=".activity.SuperButtonActivity" />
+        <activity android:name=".activity.TabLayoutActivity"></activity>
     </application>
 
 </manifest>
