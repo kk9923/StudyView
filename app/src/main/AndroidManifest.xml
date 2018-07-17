@@ -24,7 +24,8 @@
         <activity android:name=".activity.SuperButtonActivity" />
         <activity android:name=".activity.TabLayoutActivity" />
         <activity android:name=".activity.PrinterTextViewActivity" />
-        <activity android:name=".activity.PayInPutViewActivity"/>
+        <activity android:name=".activity.PayInPutViewActivity" />
+        <activity android:name=".activity.AnimationButtonActivity"></activity>
     </application>
 
 </manifest>
