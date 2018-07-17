@@ -96,7 +96,7 @@ public class PayInPutView extends android.support.v7.widget.AppCompatEditText {
         //  当前输入的密码个数
         currentTextCount = text.toString().trim().length();
       //  if (currentTextCount > )
-        invalidate();
+     //   invalidate();
         if (mOnInPutListener!=null){
             mOnInPutListener.onInPut(text.toString().trim());
         }

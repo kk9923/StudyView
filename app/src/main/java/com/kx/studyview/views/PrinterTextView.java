@@ -2,14 +2,12 @@ package com.kx.studyview.views;
 
 import android.animation.ValueAnimator;
 import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.Paint;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.animation.LinearInterpolator;
 
 public class PrinterTextView extends android.support.v7.widget.AppCompatTextView {
-    private StringBuilder stringBuilder ;
+  //  private StringBuilder stringBuilder ;
     private String mPrintText  = "我是默认的打印字符串";
     private Rect mTextRect;
     private ValueAnimator mValueAnimator;
@@ -24,22 +22,22 @@ public class PrinterTextView extends android.support.v7.widget.AppCompatTextView
 
     public PrinterTextView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        stringBuilder = new StringBuilder();
+     //   stringBuilder = new StringBuilder();
         mTextRect = new Rect();
     }
-    @Override
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        mTextRect.left = getPaddingLeft();
-        mTextRect.top = getPaddingTop();
-        mTextRect.right = getWidth() - getPaddingRight();
-        mTextRect.bottom = getHeight() - getPaddingBottom();
-
-        Paint.FontMetricsInt fontMetricsInt = getPaint().getFontMetricsInt();
-        int baseLine  = (mTextRect.bottom+mTextRect.top - fontMetricsInt.bottom - fontMetricsInt.top)/2;
-        canvas.drawText(stringBuilder.toString(),getPaddingLeft(),baseLine,getPaint());
-
-    }
+//    @Override
+//    protected void onDraw(Canvas canvas) {
+//        super.onDraw(canvas);
+//        mTextRect.left = getPaddingLeft();
+//        mTextRect.top = getPaddingTop();
+//        mTextRect.right = getWidth() - getPaddingRight();
+//        mTextRect.bottom = getHeight() - getPaddingBottom();
+//
+//        Paint.FontMetricsInt fontMetricsInt = getPaint().getFontMetricsInt();
+//        int baseLine  = (mTextRect.bottom+mTextRect.top - fontMetricsInt.bottom - fontMetricsInt.top)/2;
+//        canvas.drawText(stringBuilder.toString(),getPaddingLeft(),baseLine,getPaint());
+//
+//    }
     /**
      * 设置需要逐字显示的字符串
      * @param printText
@@ -49,7 +47,7 @@ public class PrinterTextView extends android.support.v7.widget.AppCompatTextView
         if (printText!=null && printText.length()>0){
              mPrintText = printText ;
         }
-        stringBuilder = new StringBuilder();
+      //  stringBuilder = new StringBuilder();
         return this;
     }
 
@@ -65,10 +63,10 @@ public class PrinterTextView extends android.support.v7.widget.AppCompatTextView
                     if (index!=currentIndex){
 
                         currentIndex = index ;
+                        append(mPrintText.substring(index,index+1));
+                      //  stringBuilder.append(mPrintText.substring(index,index+1));
 
-                        stringBuilder.append(mPrintText.substring(index,index+1));
-
-                        invalidate();
+                       // invalidate();
 
                     }
             }
