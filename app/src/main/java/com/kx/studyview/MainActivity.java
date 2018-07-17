@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.kx.studyview.activity.ColorfulTextViewActivity;
+import com.kx.studyview.activity.PayInPutViewActivity;
 import com.kx.studyview.activity.PrinterTextViewActivity;
 import com.kx.studyview.activity.SuperButtonActivity;
 import com.kx.studyview.activity.TabLayoutActivity;
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.superButton).setOnClickListener(mClickListener);
         findViewById(R.id.tabLayout).setOnClickListener(mClickListener);
         findViewById(R.id.printerTextView).setOnClickListener(mClickListener);
+        findViewById(R.id.payInPutView).setOnClickListener(mClickListener);
     }
     private View.OnClickListener mClickListener = new View.OnClickListener() {
         @Override
@@ -41,6 +43,9 @@ public class MainActivity extends AppCompatActivity {
                     break;
                     case R.id.printerTextView:
                     startActivity(PrinterTextViewActivity.class);
+                    break;
+                    case R.id.payInPutView:
+                    startActivity(PayInPutViewActivity.class);
                     break;
             }
         }
