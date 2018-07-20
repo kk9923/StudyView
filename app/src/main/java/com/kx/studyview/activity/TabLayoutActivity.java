@@ -156,5 +156,6 @@ public class TabLayoutActivity extends BaseActivity {
             child.setLayoutParams(params);
             child.invalidate();
         }
+        
     }
 }

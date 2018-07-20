@@ -9,6 +9,7 @@ import com.kx.studyview.activity.AnimationButtonActivity;
 import com.kx.studyview.activity.ColorfulTextViewActivity;
 import com.kx.studyview.activity.PayInPutViewActivity;
 import com.kx.studyview.activity.PrinterTextViewActivity;
+import com.kx.studyview.activity.RenderScriptActivity;
 import com.kx.studyview.activity.SuperButtonActivity;
 import com.kx.studyview.activity.TabLayoutActivity;
 import com.kx.studyview.activity.WaveViewActivity;
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.printerTextView).setOnClickListener(mClickListener);
         findViewById(R.id.payInPutView).setOnClickListener(mClickListener);
         findViewById(R.id.animationButton).setOnClickListener(mClickListener);
+        findViewById(R.id.renderScript).setOnClickListener(mClickListener);
     }
     private View.OnClickListener mClickListener = new View.OnClickListener() {
         @Override
@@ -51,6 +53,9 @@ public class MainActivity extends AppCompatActivity {
                     break;
                     case R.id.animationButton:
                     startActivity(AnimationButtonActivity.class);
+                    break;
+                    case R.id.renderScript:
+                    startActivity(RenderScriptActivity.class);
                     break;
             }
         }
