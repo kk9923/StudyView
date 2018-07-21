@@ -26,7 +26,8 @@
         <activity android:name=".activity.PrinterTextViewActivity" />
         <activity android:name=".activity.PayInPutViewActivity" />
         <activity android:name=".activity.AnimationButtonActivity" />
-        <activity android:name=".activity.RenderScriptActivity"></activity>
+        <activity android:name=".activity.RenderScriptActivity" />
+        <activity android:name=".activity.LayoutContainerActivity"></activity>
     </application>
 
 </manifest>

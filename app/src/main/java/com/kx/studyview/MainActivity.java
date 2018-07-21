@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.kx.studyview.activity.AnimationButtonActivity;
 import com.kx.studyview.activity.ColorfulTextViewActivity;
+import com.kx.studyview.activity.LayoutContainerActivity;
 import com.kx.studyview.activity.PayInPutViewActivity;
 import com.kx.studyview.activity.PrinterTextViewActivity;
 import com.kx.studyview.activity.RenderScriptActivity;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.payInPutView).setOnClickListener(mClickListener);
         findViewById(R.id.animationButton).setOnClickListener(mClickListener);
         findViewById(R.id.renderScript).setOnClickListener(mClickListener);
+        findViewById(R.id.layoutContainer).setOnClickListener(mClickListener);
     }
     private View.OnClickListener mClickListener = new View.OnClickListener() {
         @Override
@@ -56,6 +58,9 @@ public class MainActivity extends AppCompatActivity {
                     break;
                     case R.id.renderScript:
                     startActivity(RenderScriptActivity.class);
+                    break;
+                    case R.id.layoutContainer:
+                    startActivity(LayoutContainerActivity.class);
                     break;
             }
         }
