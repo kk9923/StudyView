@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent">
+    <com.kx.studyview.views.BusLineView
+        android:id="@+id/busLineView"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content" />
+
+</android.support.constraint.ConstraintLayout>
