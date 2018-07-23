@@ -3,6 +3,7 @@ package com.kx.studyview;
 import android.app.Application;
 import android.content.Context;
 
+import com.kx.studyview.utils.BaseConstants;
 import com.kx.studyview.utils.LogUtils;
 
 /**
@@ -15,6 +16,7 @@ public class AndroidApplication extends Application {
         super.onCreate();
         mContext = getApplicationContext();
         LogUtils.init();
+        BaseConstants.init(this);
     }
     public static Context getContext(){
         return mContext;

@@ -4,20 +4,27 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.widget.TextView;
 
 import com.kx.studyview.Api;
 import com.kx.studyview.R;
 import com.kx.studyview.adapter.BusLineAdapter;
 import com.kx.studyview.bean.BusLineInfo;
+import com.kx.studyview.utils.BaseConstants;
 import com.kx.studyview.utils.LogUtils;
 
+import java.io.File;
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import okhttp3.Cache;
+import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
+import okhttp3.Request;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -39,6 +46,17 @@ public class BusActivity extends AppCompatActivity {
     RecyclerView busRecyclerView;
     private Api mMApi;
     private BusLineAdapter mBusLineAdapter;
+    private static final int TIMEOUT_VALUE = 30*1000;
+
+    //okhttp的缓存大小，现为50M
+    public static final long CATCH_SIZE = 50*1024*1024;
+
+    private HttpLoggingInterceptor.Level logLevel = HttpLoggingInterceptor.Level.BODY;
+    private Retrofit retrofit;
+    private Map<Class,Object> apiMap;
+    private String cookies;
+    private String userAgent;
+    private OkHttpClient okHttpClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,31 +64,41 @@ public class BusActivity extends AppCompatActivity {
         setContentView(R.layout.activity_bus);
         ButterKnife.bind(this);
         getBusLineInfo();
-       // BusLineView busLineView = findViewById(R.id.busLineView);
-       // busLineView.setText("高新大道高科园二路");
         busRecyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
         mBusLineAdapter = new BusLineAdapter(this);
         busRecyclerView.setAdapter(mBusLineAdapter);
+        userAgent = System.getProperty("http.agent");
 
     }
 
     private void getBusLineInfo() {
-        HttpLoggingInterceptor logInterceptor = new HttpLoggingInterceptor();
-//                        if(BuildConfig.DEBUG){
-//                            //显示日志
-//                            logInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-//                        }else {
-//                            logInterceptor.setLevel(HttpLoggingInterceptor.Level.NONE);
-//                        }
-        OkHttpClient okHttpClient = new OkHttpClient.Builder()
-                .retryOnConnectionFailure(true)
-                .connectTimeout(8, TimeUnit.SECONDS)
-                .addInterceptor(logInterceptor)
-                .build();
+        OkHttpClient.Builder newBuilder = new OkHttpClient().newBuilder();
+        Interceptor requestInterceptor = chain -> {
+
+            Request.Builder builder = chain.request().newBuilder();
+            if (!TextUtils.isEmpty(userAgent)) {
+               // builder.addHeader("User-Agent", userAgent);
+            }
+            if (!TextUtils.isEmpty(cookies)) {
+              //  builder.addHeader("Cookie", cookies);
+            }
+            return chain.proceed(builder.build());
+        };
+      //  newBuilder.addNetworkInterceptor(requestInterceptor);
+        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
+        loggingInterceptor.setLevel(logLevel);
+        newBuilder.addNetworkInterceptor(loggingInterceptor);
+        //设置缓存路径跟大小
+        newBuilder.cache(new Cache(new File(BaseConstants.getNetCacheDir()), CATCH_SIZE));
+        newBuilder.connectTimeout(TIMEOUT_VALUE, TimeUnit.MILLISECONDS);
+        newBuilder.readTimeout(TIMEOUT_VALUE, TimeUnit.MILLISECONDS);
+        newBuilder.writeTimeout(TIMEOUT_VALUE, TimeUnit.MILLISECONDS);
+
+
         Retrofit retrofit1 = new Retrofit.Builder()
                 //使用自定义的mGsonConverterFactory
                 .baseUrl("http://androidbus.wuhancloud.cn:9087/")
-                .client(okHttpClient)
+                .client(newBuilder.build())
                 .addConverterFactory(GsonConverterFactory.create())
                 // .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build();
