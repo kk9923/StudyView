@@ -54,7 +54,14 @@
             <enum name="sweep" value="2" />
         </attr>
 
+    </declare-styleable>
 
+    <declare-styleable name="DrawText">
+        <attr name="orientation" format="enum">
+            <enum name="vertical" value="1"/>
+            <enum name="horizontal" value="2"/>
+
+        </attr>
     </declare-styleable>
 
 

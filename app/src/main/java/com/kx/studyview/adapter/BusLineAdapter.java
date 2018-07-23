@@ -34,17 +34,15 @@ public class BusLineAdapter extends RecyclerView.Adapter<BusLineAdapter.BusLineH
     @Override
     public void onBindViewHolder(BusLineHolder holder, final int position) {
         BusLineInfo.DataBean.SBean sBean = mBeans.get(position);
-
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+        holder.busLineView.setonTextClickListener(new BusLineView.onTextClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onTextClick() {
                 if (position!= selectStation){
                     selectStation = position ;
                     notifyDataSetChanged();
                 }
             }
         });
-        System.out.println("position =  "  +  position  );
         if (position <  selectStation){
             holder.busLineView.setText(sBean.getN()).setSelectStation(false).setAfterSelectStation(false).reLoad();
         }else if (selectStation == position){

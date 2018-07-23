@@ -11,6 +11,7 @@ import com.kx.studyview.activity.ColorfulTextViewActivity;
 import com.kx.studyview.activity.LayoutContainerActivity;
 import com.kx.studyview.activity.PayInPutViewActivity;
 import com.kx.studyview.activity.PrinterTextViewActivity;
+import com.kx.studyview.activity.RegionActivity;
 import com.kx.studyview.activity.RenderScriptActivity;
 import com.kx.studyview.activity.SuperButtonActivity;
 import com.kx.studyview.activity.TabLayoutActivity;
@@ -31,12 +32,10 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.renderScript).setOnClickListener(mClickListener);
         findViewById(R.id.layoutContainer).setOnClickListener(mClickListener);
         findViewById(R.id.tv_bus).setOnClickListener(mClickListener);
+        findViewById(R.id.region).setOnClickListener(mClickListener);
 
     }
     private View.OnClickListener mClickListener = new View.OnClickListener() {
-
-        private Api mMApi;
-
         @Override
         public void onClick(View v) {
             switch (v.getId()){
@@ -66,35 +65,12 @@ public class MainActivity extends AppCompatActivity {
                     break;
                     case R.id.layoutContainer:
                     startActivity(LayoutContainerActivity.class);
-//                        Retrofit retrofit2 = new Retrofit.Builder()
-//                                //使用自定义的mGsonConverterFactory
-//                                .baseUrl("http://androidbus.wuhancloud.cn:9087/")
-//                               .addConverterFactory(GsonConverterFactory.create())
-//                               // .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-//                                .build();
-//                        mMApi = retrofit2.create(Api.class);
-//                        mMApi.getBus().enqueue(new Callback<BusLineInfo>() {
-//                            @Override
-//                            public void onResponse(Call<BusLineInfo> call, Response<BusLineInfo> response) {
-//                                boolean successful = response.isSuccessful();
-//                                LogUtils.e("successful =   "   +successful);
-//                              //  LogUtils.e(busInfo.toString());
-//                                BusLineInfo body = response.body();
-//                                List<BusLineInfo.DataBean.SBean> s = body.getData().getS();
-//                                for (BusLineInfo.DataBean.SBean businfo : s) {
-//                                  //  System.out.println(businfo.getN());
-//                                }
-//                            }
-//
-//                            @Override
-//                            public void onFailure(Call<BusLineInfo> call, Throwable e) {
-//                             //   LogUtils.e(e.toString());
-//                            }
-//                        });
-
                     break;
                 case R.id.tv_bus :
                     startActivity(BusActivity.class);
+                    break;
+                    case R.id.region :
+                    startActivity(RegionActivity.class);
                     break;
             }
         }

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.RegionActivity">
+    <TextView
+        android:gravity="left"
+        android:textColor="@color/colorPrimary"
+        android:text="通过 setPath 方法。取Region 和  Path 所在区域的交集，并将交集区域赋值给Region，在自定义View中结合Region.contains(int x, int y ) 方法可以用来判断点击位置是否是我们想要的区域"
+        android:textSize="@dimen/text_size_20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <com.kx.studyview.views.RegionView
+        android:layout_width="match_parent"
+        android:layout_height="100dp" />
+    <LinearLayout
+        android:layout_margin="5dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.kx.studyview.views.DrawText
+            android:layout_marginLeft="10dp"
+            app:orientation="vertical"
+            android:layout_width="100dp"
+            android:layout_height="300dp" />
+        <com.kx.studyview.views.DrawText
+            android:layout_marginLeft="5dp"
+            app:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp" />
+    </LinearLayout>
+
+</LinearLayout>

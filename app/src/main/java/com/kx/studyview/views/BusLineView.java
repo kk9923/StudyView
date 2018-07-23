@@ -8,6 +8,7 @@ import android.graphics.Path;
 import android.graphics.Region;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
 
 /**
@@ -33,6 +34,7 @@ public class BusLineView extends View{
     private int strokeWidth = 10;
     private int circleRadius = 14;
     private Path mPath;
+    private Region mRegion;
 
     public BusLineView(Context context) {
         this(context,null);
@@ -57,6 +59,7 @@ public class BusLineView extends View{
         mCirClePaint.setAntiAlias(true);
 
         mPath = new Path();
+
     }
 
     @Override
@@ -64,6 +67,10 @@ public class BusLineView extends View{
         super.onDraw(canvas);
         mPath.reset();
         drawText(canvas);
+        if (mTextWidth != 0){
+            mRegion = new Region((int) (getWidth()-mTextWidth-10),150,getWidth(),getHeight());
+        }
+
         // 如果是选中的station站点
        if (isSelectStation){
            mLinePaint.setStrokeWidth(14);
@@ -96,9 +103,28 @@ public class BusLineView extends View{
            mLinePaint.setStrokeWidth(14);
            canvas.drawLine(0 ,50,getWidth()   ,50,mLinePaint);
        }
+    }
 
-
-
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        switch (event.getAction()){
+            case MotionEvent.ACTION_DOWN :
+                int x = (int) event.getX();
+                int y = (int) event.getY();
+                if (mRegion.contains(x,y)){
+                    if (mClickListener !=null){
+                        mClickListener.onTextClick();
+                    }
+                    return  true ;
+                }
+                break;
+            case MotionEvent.ACTION_MOVE:
+                break;
+            case MotionEvent.ACTION_UP:
+            case MotionEvent.ACTION_CANCEL:
+                break;
+        }
+        return super.onTouchEvent(event);
     }
 
     private void drawText(Canvas canvas) {
@@ -138,5 +164,13 @@ public class BusLineView extends View{
     }
     public void reLoad(){
         invalidate();
+    }
+    public  interface  onTextClickListener{
+        void onTextClick();
+    }
+     onTextClickListener mClickListener;
+
+    public void setonTextClickListener(onTextClickListener clickListener) {
+        mClickListener = clickListener;
     }
 }
