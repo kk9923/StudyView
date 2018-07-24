@@ -9,6 +9,7 @@ import com.kx.studyview.activity.AnimationButtonActivity;
 import com.kx.studyview.activity.BusActivity;
 import com.kx.studyview.activity.ColorfulTextViewActivity;
 import com.kx.studyview.activity.LayoutContainerActivity;
+import com.kx.studyview.activity.PaintViewActivity;
 import com.kx.studyview.activity.PayInPutViewActivity;
 import com.kx.studyview.activity.PrinterTextViewActivity;
 import com.kx.studyview.activity.RegionActivity;
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.layoutContainer).setOnClickListener(mClickListener);
         findViewById(R.id.tv_bus).setOnClickListener(mClickListener);
         findViewById(R.id.region).setOnClickListener(mClickListener);
+        findViewById(R.id.paintView).setOnClickListener(mClickListener);
 
     }
     private View.OnClickListener mClickListener = new View.OnClickListener() {
@@ -71,6 +73,9 @@ public class MainActivity extends AppCompatActivity {
                     break;
                     case R.id.region :
                     startActivity(RegionActivity.class);
+                    break;
+                    case R.id.paintView :
+                    startActivity(PaintViewActivity.class);
                     break;
             }
         }
