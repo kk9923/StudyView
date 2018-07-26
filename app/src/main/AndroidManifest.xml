@@ -31,7 +31,10 @@
         <activity android:name=".activity.BusActivity" />
         <activity android:name=".activity.RegionActivity" />
         <activity android:name=".activity.PaintViewActivity" />
-        <activity android:name=".activity.GradientActivity"></activity>
+        <activity android:name=".activity.GradientActivity" />
+        <activity android:name=".activity.ViewGroupListActivity" />
+        <activity android:name=".activity.MyLinearLayoutActivity" />
+        <activity android:name=".activity.FlowLayoutActivity"></activity>
     </application>
 
 </manifest>

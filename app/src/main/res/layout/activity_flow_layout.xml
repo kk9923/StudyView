@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.FlowLayoutActivity">
+    <com.kx.studyview.views.FlowLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            style="@style/text_flag"
+            android:text="Welcome"
+            android:textColor="#43BBE7" />
+
+        <TextView
+            style="@style/text_flag"
+            android:text="IT工程师"
+            android:textColor="#43BBE7" />
+
+        <TextView
+            style="@style/text_flag"
+            android:text="我真是可以的"
+            android:textColor="#43BBE7" />
+
+        <TextView
+            style="@style/text_flag"
+            android:text="你觉得呢"
+            android:textColor="#43BBE7" />
+
+        <TextView
+            style="@style/text_flag"
+            android:text="不要只知道挣钱"
+            android:textColor="#43BBE7" />
+
+        <TextView
+            style="@style/text_flag"
+            android:text="努力ing"
+            android:textColor="#43BBE7" />
+
+        <TextView
+            style="@style/text_flag"
+            android:text="I thick i can"
+            android:textColor="#43BBE7" />
+
+
+
+    </com.kx.studyview.views.FlowLayout>
+
+</android.support.constraint.ConstraintLayout>
