@@ -20,6 +20,8 @@ public class ViewGroupListActivity extends AppCompatActivity {
     TextView myLinearLayout;
     @BindView(R.id.flowLayout)
     TextView flowLayout;
+    @BindView(R.id.waterFallLayout)
+    TextView waterFallLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +30,7 @@ public class ViewGroupListActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.layoutContainer, R.id.myLinearLayout,R.id.flowLayout})
+    @OnClick({R.id.layoutContainer, R.id.myLinearLayout, R.id.flowLayout,R.id.waterFallLayout})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.layoutContainer:
@@ -37,8 +39,11 @@ public class ViewGroupListActivity extends AppCompatActivity {
             case R.id.myLinearLayout:
                 startActivity(MyLinearLayoutActivity.class);
                 break;
-                case R.id.flowLayout:
+            case R.id.flowLayout:
                 startActivity(FlowLayoutActivity.class);
+                break;
+                case R.id.waterFallLayout:
+                startActivity(WaterFallLayoutActivity.class);
                 break;
         }
     }

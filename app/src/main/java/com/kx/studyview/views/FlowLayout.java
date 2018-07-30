@@ -22,6 +22,7 @@ public class FlowLayout extends ViewGroup {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         int measureWidth = MeasureSpec.getSize(widthMeasureSpec);
         int measureHeight = MeasureSpec.getSize(heightMeasureSpec);
         int measureWidthMode = MeasureSpec.getMode(widthMeasureSpec);
@@ -33,39 +34,41 @@ public class FlowLayout extends ViewGroup {
         int height = 0;
         int width = 0;
         int count = getChildCount();
-        for (int i=0;i<count;i++){
+        for (int i=0;i<count;i++) {
             View child = getChildAt(i);
-            measureChild(child,widthMeasureSpec,heightMeasureSpec);
+            measureChild(child, widthMeasureSpec, heightMeasureSpec);
 
             MarginLayoutParams lp = (MarginLayoutParams) child.getLayoutParams();
-            int childWidth = child.getMeasuredWidth() + lp.leftMargin +lp.rightMargin;
+            int childWidth = child.getMeasuredWidth() + lp.leftMargin + lp.rightMargin;
             int childHeight = child.getMeasuredHeight() + lp.topMargin + lp.bottomMargin;
+            //  当前的行宽  +   此控件的宽度  大于 测量模式下的宽度    需要换行
+            if (lineWidth + childWidth > measureWidth) {
 
-            if (lineWidth + childWidth > measureWidth){
-                //需要换行
-                width = Math.max(lineWidth,width);
+                width = Math.max(lineWidth,childWidth);
+                //  换行后,先将换行之前的行高累加， 没有加上换行之后的行高，    根据最后一个控件所处的位置来确定
                 height += lineHeight;
-                //因为由于盛不下当前控件，而将此控件调到下一行，所以将此控件的高度和宽度初始化给lineHeight、lineWidth
+
+                //在需要换行的情况下，下一行的宽高就是此控件的宽高
                 lineHeight = childHeight;
-                lineWidth = childWidth;
-            }else{
-                // 否则累加值lineWidth,lineHeight取最大高度
-                lineHeight = Math.max(lineHeight,childHeight);
+                lineWidth = childWidth ;
+
+            }else {   //   不换行
+                // 将控件宽度进行累加，得到行宽
                 lineWidth += childWidth;
-            }
+                //  将行高不断与控件高度比较，此行的行高取控件高度的最大值
+                lineHeight = Math.max(lineHeight,childHeight);
 
-            //最后一行是不会超出width范围的，所以要单独处理
+            }
+            //  计算最后一个控件时的情况，   分两种情况
+            //  1  最后一个控件处于一行的末尾，   代表不需要换行，根据之前计算的行高加上本行的行高即可
+            //  2  最后一个控件单独一行，         需要换行        根据之前计算的行高加上该控件的高度即可，
             if (i == count -1){
-                height += lineHeight;
-                width = Math.max(width,lineWidth);
+                height += lineHeight ;
+                width = Math.max(lineWidth,width);
             }
-
         }
-        //当属性是MeasureSpec.EXACTLY时，那么它的高度就是确定的，
-        // 只有当是wrap_content时，根据内部控件的大小来确定它的大小时，大小是不确定的，属性是AT_MOST,此时，就需要我们自己计算它的应当的大小，并设置进去
-        setMeasuredDimension((measureWidthMode == MeasureSpec.EXACTLY) ? measureWidth
-                : width, (measureHeightMode == MeasureSpec.EXACTLY) ? measureHeight: height);
 
+        setMeasuredDimension((measureWidthMode == MeasureSpec.EXACTLY) ? measureWidth : width ,(measureHeightMode == MeasureSpec.EXACTLY) ? measureHeight : height);
     }
 
     @Override
@@ -82,27 +85,33 @@ public class FlowLayout extends ViewGroup {
             int childHeight = child.getMeasuredHeight()+lp.topMargin+lp.bottomMargin;
             int childWidth = child.getMeasuredWidth()+lp.leftMargin+lp.rightMargin;
 
-            if (lineWidth + childWidth > getMeasuredWidth()){
-                //需要换行
-               left = 0;
-               top += lineHeight;
+            //  当前的行宽  +   此控件的宽度  大于 测量模式下的宽度    需要换行
+            if (lineWidth + childWidth > getMeasuredWidth()) {
 
-                //因为由于盛不下当前控件，而将此控件调到下一行，所以将此控件的高度和宽度初始化给lineHeight、lineWidth
-                lineHeight =childHeight;
+                left = 0;
+                top += lineHeight ;
+
+                lineHeight = childHeight;
                 lineWidth = childWidth;
-            }else{
-                // 否则累加值lineWidth,lineHeight取最大高度
-                lineHeight = Math.max(lineHeight,childHeight);
-                lineWidth += childWidth;
-            }
 
-            int childLeft = left + lp.leftMargin;
-            int childTop = top+lp.topMargin;
-            int childRight = childLeft + child.getMeasuredWidth();
-            int childBottom = childTop+child.getMeasuredHeight();
-            child.layout(childLeft, childTop, childRight, childBottom);
-            //将left置为下一子控件的起始点
-            left += childWidth ;
+            }else {   //   不换行
+                lineWidth += childWidth ;
+                lineHeight = Math.max(lineHeight,childHeight);
+
+
+            }
+            int childLeft = left +lp.leftMargin;
+            int childTop =  top + lp.topMargin;
+            int childRight = childLeft + child.getMeasuredWidth() ;
+            int childBottom = childTop + child.getMeasuredHeight();
+
+            child.layout(childLeft,childTop,childRight,childBottom);
+
+            left += childWidth;
+
+
+
+
         }
 
 
