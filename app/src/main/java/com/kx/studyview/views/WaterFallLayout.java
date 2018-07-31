@@ -200,6 +200,11 @@ public class WaterFallLayout extends ViewGroup {
         }
     }
 
+
+
+    /**
+     * 重写该方法，避免使用自定义LayoutParams时报类型转换错位
+     */
     @Override
     protected boolean checkLayoutParams(LayoutParams p) {
         return false;
