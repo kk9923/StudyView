@@ -66,6 +66,20 @@
                 android:text="简单瀑布流WaterFallLayout"
                 />
         </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/expandableTextView"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="ExpandableTextView"
+                />
+        </android.support.v7.widget.CardView>
 
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

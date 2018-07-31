@@ -60,8 +60,11 @@
         <attr name="orientation" format="enum">
             <enum name="vertical" value="1"/>
             <enum name="horizontal" value="2"/>
-
         </attr>
+    </declare-styleable>
+
+    <declare-styleable name="ExpandableTextView" >
+        <attr name="maxExpandLines" format="integer" />
     </declare-styleable>
 
 

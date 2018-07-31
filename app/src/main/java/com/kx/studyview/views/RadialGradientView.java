@@ -106,7 +106,7 @@ public class RadialGradientView extends android.support.v7.widget.AppCompatTextV
     public void setRadius(final int radius) {
         mCurRadius = radius;
         if (mCurRadius > 0) {
-            mRadialGradient = new RadialGradient(mCenterX, mCenterY, mCurRadius, 0x00FFFFFF, 0xFF58FAAC, Shader.TileMode.REPEAT);
+            mRadialGradient = new RadialGradient(mCenterX, mCenterY, mCurRadius, 0x00FFFFFF, 0xFF59ccf5, Shader.TileMode.REPEAT);
             mPaint.setShader(mRadialGradient);
         }
         postInvalidate();

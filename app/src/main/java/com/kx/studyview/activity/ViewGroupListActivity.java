@@ -30,8 +30,8 @@ public class ViewGroupListActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.layoutContainer, R.id.myLinearLayout, R.id.flowLayout,R.id.waterFallLayout})
-    public void onClick(View view) {
+    @OnClick({R.id.layoutContainer, R.id.myLinearLayout, R.id.flowLayout,R.id.waterFallLayout,R.id.expandableTextView})
+    public void onClickxx(View view) {
         switch (view.getId()) {
             case R.id.layoutContainer:
                 startActivity(LayoutContainerActivity.class);
@@ -42,9 +42,12 @@ public class ViewGroupListActivity extends AppCompatActivity {
             case R.id.flowLayout:
                 startActivity(FlowLayoutActivity.class);
                 break;
-                case R.id.waterFallLayout:
-                startActivity(WaterFallLayoutActivity.class);
-                break;
+            case R.id.waterFallLayout:
+                 startActivity(WaterFallLayoutActivity.class);
+            break;
+            case R.id.expandableTextView:
+                 startActivity(ExpandableTextViewActivity.class);
+            break;
         }
     }
 

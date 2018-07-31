@@ -35,7 +35,8 @@
         <activity android:name=".activity.ViewGroupListActivity" />
         <activity android:name=".activity.MyLinearLayoutActivity" />
         <activity android:name=".activity.FlowLayoutActivity" />
-        <activity android:name=".activity.WaterFallLayoutActivity"></activity>
+        <activity android:name=".activity.WaterFallLayoutActivity" />
+        <activity android:name=".activity.ExpandableTextViewActivity"></activity>
     </application>
 
 </manifest>
