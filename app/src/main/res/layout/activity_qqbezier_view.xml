@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.QQBezierViewActivity">
+    <Button
+        android:onClick="reset"
+        android:text="重置"
+        android:layout_width="match_parent"
+        android:layout_height="55dp" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:onClick="setMeg"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_16"
+            android:gravity="center"
+            android:text="设置消息个数"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="50dp" />
+        <EditText
+            android:digits="0123456789"
+            android:inputType="number"
+            android:id="@+id/et_msg_num"
+            android:text=""
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <com.kx.studyview.views.QQBezierView
+        android:id="@+id/qqBezierView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+</LinearLayout>

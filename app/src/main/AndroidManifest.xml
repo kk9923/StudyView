@@ -37,7 +37,8 @@
         <activity android:name=".activity.FlowLayoutActivity" />
         <activity android:name=".activity.WaterFallLayoutActivity" />
         <activity android:name=".activity.ExpandableTextViewActivity" />
-        <activity android:name=".activity.SwitchButtonActivity"></activity>
+        <activity android:name=".activity.SwitchButtonActivity" />
+        <activity android:name=".activity.QQBezierViewActivity"></activity>
     </application>
 
 </manifest>
