@@ -35,7 +35,13 @@
     </LinearLayout>
 
     <com.kx.studyview.views.QQBezierView
+        android:visibility="gone"
         android:id="@+id/qqBezierView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+    <com.kx.studyview.views.MyQQBezierView
+        android:id="@+id/myQqBezierView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />

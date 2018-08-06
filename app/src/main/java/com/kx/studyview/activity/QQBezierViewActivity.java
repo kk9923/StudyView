@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.kx.studyview.R;
+import com.kx.studyview.views.MyQQBezierView;
 import com.kx.studyview.views.QQBezierView;
 
 import butterknife.BindView;
@@ -17,6 +18,8 @@ public class QQBezierViewActivity extends AppCompatActivity {
     EditText etMsgNum;
     @BindView(R.id.qqBezierView)
     QQBezierView qqBezierView;
+    @BindView(R.id.myQqBezierView)
+    MyQQBezierView mMyQQBezierView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
