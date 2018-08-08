@@ -7,7 +7,6 @@ import android.widget.EditText;
 
 import com.kx.studyview.R;
 import com.kx.studyview.views.MyQQBezierView;
-import com.kx.studyview.views.QQBezierView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -16,8 +15,6 @@ public class QQBezierViewActivity extends AppCompatActivity {
 
     @BindView(R.id.et_msg_num)
     EditText etMsgNum;
-    @BindView(R.id.qqBezierView)
-    QQBezierView qqBezierView;
     @BindView(R.id.myQqBezierView)
     MyQQBezierView mMyQQBezierView;
 
@@ -26,19 +23,19 @@ public class QQBezierViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qqbezier_view);
         ButterKnife.bind(this);
-        qqBezierView.setOnDragBallListener(new QQBezierView.OnDragBallListener() {
+        mMyQQBezierView.setOnDragBallListener(new MyQQBezierView.OnDragBallListener() {
             @Override
             public void onDisappear() {
-               // qqBezierView.reset();
+                mMyQQBezierView.reset();
             }
         });
     }
 
     public void reset(View view) {
-        qqBezierView.reset();
+        mMyQQBezierView.reset();
     }
 
     public void setMeg(View view) {
-        qqBezierView.setMsgCount(etMsgNum.getText().toString().trim());
+        mMyQQBezierView.setMsgCount(etMsgNum.getText().toString().trim());
     }
 }
