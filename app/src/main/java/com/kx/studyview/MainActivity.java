@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.kx.studyview.activity.AnimationButtonActivity;
 import com.kx.studyview.activity.BusActivity;
 import com.kx.studyview.activity.ColorfulTextViewActivity;
+import com.kx.studyview.activity.DragActivity;
 import com.kx.studyview.activity.GradientActivity;
 import com.kx.studyview.activity.PaintViewActivity;
 import com.kx.studyview.activity.PayInPutViewActivity;
@@ -51,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
     TextView paintView;
     @BindView(R.id.gradient)
     TextView gradient;
+    @BindView(R.id.dragLayout)
+    TextView dragLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick({R.id.colorfulTextView, R.id.waveView, R.id.superButton, R.id.tabLayout, R.id.printerTextView,
             R.id.payInPutView, R.id.animationButton, R.id.renderScript, R.id.viewGroup, R.id.tv_bus, R.id.region,
-            R.id.paintView, R.id.gradient})
+            R.id.paintView, R.id.gradient,R.id.dragLayout})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.colorfulTextView:
@@ -103,6 +106,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.gradient:
                 startActivity(GradientActivity.class);
                 break;
+            case R.id.dragLayout:
+            startActivity(DragActivity.class);
+            break;
         }
     }
 

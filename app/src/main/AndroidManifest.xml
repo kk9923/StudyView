@@ -38,7 +38,8 @@
         <activity android:name=".activity.WaterFallLayoutActivity" />
         <activity android:name=".activity.ExpandableTextViewActivity" />
         <activity android:name=".activity.SwitchButtonActivity" />
-        <activity android:name=".activity.QQBezierViewActivity"></activity>
+        <activity android:name=".activity.QQBezierViewActivity" />
+        <activity android:name=".activity.DragActivity"></activity>
     </application>
 
 </manifest>

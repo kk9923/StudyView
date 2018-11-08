@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <declare-styleable name="DragLayout">
+        <attr name="fix_height" format="dimension"/>
+        <attr name="max_height" format="dimension"/>
+        <attr name="collapse_parallax" format="float"/>
+        <attr name="mode" format="enum">
+            <enum name="drag" value="1"/>
+        </attr>
+    </declare-styleable>
+
+
     <declare-styleable name="SuperButton">
         <attr name="shape" format="enum">
             <enum name="rectangle" value="0"/>
